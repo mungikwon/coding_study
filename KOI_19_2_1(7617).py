@@ -1,4 +1,25 @@
-cache = {}
+def play(n):
+    n=str(n)
+    an=0
+    for k in n:
+        if k=='3' or k=='6' or k=='9':
+            an=an+1
+    return an
+
+
+
+
+n=int(input())
+answer=0
+for i in range(1,n+1):
+    answer=answer+play(i)
+print(answer)
+
+
+
+
+
+""" """ """ cache = {}
 
 
 def play(n):
@@ -20,10 +41,9 @@ def play(n):
     cache[n] = (play(i) + play(j))
     return cache[n]
 
-
 n = int(input())
 count = 0
 for i in range(1, n + 1):
     print(i)
-    count += play(i)
-print(count)
+    count += play(i) 
+print(count) """
