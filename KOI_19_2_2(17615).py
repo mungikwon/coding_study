@@ -6,7 +6,26 @@ Created on Mon May 18 13:12:30 2020
 """
 
 
+def play(color,ball):
+    for _ in range(len(ball)):
+        c=ball.pop()
+        if c!=color:
+            ball.append(c)
+            break
 
+    
+    return ball.count(color)
+
+
+
+
+n=int(input())
+ball=list(input())
+print(min(play("R",ball[:]),play("R",ball[::-1]),play("B",ball[:]),play("B",ball[::-1])))
+
+
+
+""" 
 def init(color,ball):
     for _ in range(len(ball)):
         c=ball.pop()
@@ -29,3 +48,4 @@ ball=list(input())
 
 
 print(min(play('R',ball[:]),play('R',ball[::-1]),play('B',ball[:]),play('B',ball[::-1])))
+ """
