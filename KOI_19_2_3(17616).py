@@ -19,11 +19,9 @@ def bfs(X,n_list):
         for i in n_list[v]:
             if visited[i]==0:
                 q.append(i)
-                visited[i]==1
+                visited[i]=1
                 result=result+1
     return result
-
-
 
 
 
@@ -36,7 +34,7 @@ for i in range(M):
     lower[B].append(A)
     higher[A].append(B)
 
-print(1+bfs(X,lower),Nbfs-(X,higher))
+print(1+bfs(X,lower),N-bfs(X,higher))
    
 
 
