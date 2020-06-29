@@ -1,58 +1,44 @@
 import collections
 
 N=int(input())
-N_list=[[] for _ in range(N+1)]
-result=0
-result_final=[]
+room_list=[]
+room_list.append((0,0))
+result=[]
 
-def bfs(N_list,i):
-    visited=[1]*(N+1)
-    result_list=[]
-    test_list=[]
+def bfs(k):
+    visited=[0]*(N+1)
     q=collections.deque()
-    q.append(N_list[i][0])
-    result_list.append(i)
-    visited[i]=0    
+    q.append(room_list[k][1])
+    visited[k]=1
     while q:
-        k=q.popleft()
-        if visited[k]==0:
-            break
-        q.append(N_list[k][0])
-        visited[k]=0   
-        result_list.append(k)
-    for z in result_list:
-        test_list.append(N_list[z][0])
-
-    result_list.sort()
-    test_list.sort()
-    print(result_list)
-    print(test_list)
-    print(len(result_list))
-    for i in range(len(result_list)):
-        print(i)
-        print("r",result_list[i])
-        print("t",test_list[i])
-        if result_list[i]!=test_list[i]:
-            result_list=[]
-    return result_list
+        a=q.popleft()
+        if visited[a]==1:
+            continue
+        visited[a]=1
+        q.append(room_list[a][1])
+    sum1=[]
+    sum2=[]
+    for i in range(len(room_list)):
+        if visited[i]==1:
+            sum1.append(i)
+            sum2.append(room_list[i][1])
+    sum1.sort()
+    sum2.sort()
+    for i in range(len(sum1)):
+        if sum1[i]!=sum2[i]:
+            return []
+    return k
+            
 
 for i in range(1,N+1):
-    N_list[i].append(int(input()))
-    if N_list[i][0]==i:
-        result_final.append(i)
+    a=int(input())
+    room_list.append((i,a))
 
+for k in range(1,N+1):
+    a=bfs(k)
+    if a:
+        result.append(a)
 
-for i in range(1,N+1):
-    a=bfs(N_list,i)
-
-    if len(a)>result:
-        result_final=a+result_final
-        result=len(result_final)
-
-    
-print(result)
-result_final.sort()
-for i in result_final:
+print(len(result))
+for i in result:
     print(i)
-
-
