@@ -32,6 +32,9 @@ if len(lo)==2:
     lo.append([lo[0][0],lo[1][1]])
 
 lo.sort()
+
+for 
+
 if len(lo)==3:
     print(lo)
 else:
