@@ -16,8 +16,6 @@ def check(y,x):
          lo.append([y+1,x+1])       
 
 
-
-
 for i in range(10):
     room[i]=list(map(int,input()))
 
