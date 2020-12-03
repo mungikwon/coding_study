@@ -31,8 +31,8 @@ def spread():
                 check_room+=1
                 new_maps[x][y]+=maps[i][j]//5
             new_maps[i][j]+=(maps[i][j]-(maps[i][j]//5)*check_room)
-            new_maps[item_lo[0]][0]=-1
-            new_maps[item_lo[1]][0]=-1
+    new_maps[item_lo[0]][0]=-1
+    new_maps[item_lo[1]][0]=-1
     return new_maps
 
 def work():
