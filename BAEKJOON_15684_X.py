@@ -4,13 +4,6 @@ N,M,H= map(int,input().split())
 rmaps=[[0]*N for _ in range(H)]
 find_index=[]
 maps=[]
-# for i in range(H):
-#     for j in range(0,N-1):
-#         find_index.append((i,(j,j+1)))
-#     find_index.remove((i-1,(j-1,j)))
-#     find_index.remove((i-1))
-
-
 
 def find_point():
     for i in range(H):
@@ -19,7 +12,9 @@ def find_point():
                 find_index.append((i,j))
 
 def check():
+
     result=[0]*N
+    print("3",rmaps)
     for j in range(N):
         i=0
         index=j
@@ -41,8 +36,10 @@ def play():
         return 0
     maps=rmaps
     for x,y in find_index:
-        maps[x][y]=1
-        maps[x][y+1]=1
+        print("1",rmaps)
+        rmaps[x][y]=1
+        rmaps[x][y+1]=1
+        print("2",rmaps)
         if check()==True:
             return 1
         maps[x][y]=0
@@ -75,6 +72,9 @@ def play():
                 maps[x][y]=0
                 maps[x][y+1]=0
     return -1
+
+
+
 
 for _ in range(M):
     i,j = map(int,input().split())
